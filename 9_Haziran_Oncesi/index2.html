@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Bilgileri</title>
+</head>
+<body>
+
+    <h2>Kullanıcı Bilgi Formu</h2>
+    
+    <label>İsim:</label><br>
+    <input type="text" id="adInput"><br><br>
+
+    <label>Soyisim:</label><br>
+    <input type="text" id="soyadInput"><br><br>
+
+    <label>Numara:</label><br>
+    <input type="text" id="numaraInput"><br><br>
+
+  
+
+    <button id="gosterButon">Bilgileri Görüntüle</button>
+
+    <hr>
+
+    <h3>Girilen Bilgiler:</h3>
+    <p>İsim: <span id="kartAd"></span></p>
+    <p>Soyisim: <span id="kartSoyad"></span></p>
+    <p>Numara: <span id="kartNumara"></span></p>
+    
+    
+
+    <script>
+        const adInput = document.getElementById('adInput');
+        const soyadInput = document.getElementById('soyadInput');
+        const numaraInput = document.getElementById('numaraInput');
+        const gorselInput = document.getElementById('gorselInput');
+        const gosterButon = document.getElementById('gosterButon');
+
+        const kartAd = document.getElementById('kartAd');
+        const kartSoyad = document.getElementById('kartSoyad');
+        const kartNumara = document.getElementById('kartNumara');
+        
+
+        gosterButon.addEventListener('click', function() {
+            kartAd.textContent = adInput.value;
+            kartSoyad.textContent = soyadInput.value;
+            kartNumara.textContent = numaraInput.value;
+
+            
+        });
+    </script>
+
+</body>
+</html>

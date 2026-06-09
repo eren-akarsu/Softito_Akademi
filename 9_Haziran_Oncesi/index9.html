@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Property ve Method</h1>
+      <p></p>
+    </div>
+
+    <div>
+      <h3>Nesne Oluşturma</h3>
+      <div>
+        <label>Marka</label>
+        <input type="text" id="input-brand" value="Apple" />
+      </div>
+      <div>
+        <label>Fiyat</label>
+        <input type="number" id="input-price" value="500000" />
+      </div>
+      <div>
+        <button style="border: 3px solid black; padding: 5px 10px; cursor: pointer;" id="btn-build">Oluştur</button>
+        <div id="result" style="margin-top: 10px;">Oluşturulmadı</div>
+      </div>
+    </div>
+
+    <script>
+      // addEventListener kısmına eksik olan virgül (,) eklendi
+      document.getElementById('btn-build').addEventListener('click', () => {
+
+        const marka = document.getElementById('input-brand').value;
+        const fiyat = document.getElementById('input-price').value;
+
+        const cihaz = {
+          marka,
+          fiyat,
+          bilgi() {
+              return `${this.marka} markalı cihaz, ${this.fiyat} TL fiyatındadır.`;
+          }
+        };
+
+        // innerHTML atamasındaki ters tırnak (backtick) yerleşimi düzeltildi
+        document.getElementById('result').innerHTML = `
+          <div>Oluşan Nesne: ${JSON.stringify({ marka: cihaz.marka, fiyat: cihaz.fiyat })}</div>
+          <div>cihaz.bilgi() sonucu: <span>${cihaz.bilgi()}</span></div> 
+        `;
+      });
+    </script>
+  </body>
+</html>

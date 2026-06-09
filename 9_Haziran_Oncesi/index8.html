@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <h3>1. Basit Karesini Alma</h3>
+    <input type="number" id="input-number" value="6">
+    <button style="border: 1px solid black;" id="btn-calc">Hesapla</button>
+</div>
+
+<div id="calc-result">Sonuç: İşlem Yapılmadı</div>
+
+<hr>
+
+<div>
+    <h3>2. Sayaç this Farkı</h3>
+
+    <div>
+        <button style="border: 1px solid black;" id="btn-classic-timer">Klasik Sayaç</button>
+        <div id="classic-timer-display">0</div>
+    </div>
+
+    <br>
+
+    <div>
+        <button style="border: 1px solid black;" id="btn-arrow-timer">Arrow Sayaç</button>
+        <div id="arrow-timer-display">0</div>
+    </div>
+</div>
+
+
+<script>
+// 1. Karesini Alma Bölümü
+document.getElementById('btn-calc').addEventListener('click', () => {
+    const num = parseFloat(document.getElementById('input-number').value) || 0;
+    const karesi = x => x * x;
+    document.getElementById('calc-result').innerText = 'Karesi : ' + karesi(num);
+});
+
+// Sayaç Değişkenleri
+let classicId = null;
+let arrowId = null;
+
+// 2. Klasik Sayaç (this sorunu yaşayan veya bind/self ile çözülen yöntem)
+document.getElementById('btn-classic-timer').addEventListener('click', () => {
+    if(classicId) clearInterval(classicId);
+    
+    const sayacObj = {
+        sayi: 0,
+        baslat() {
+            // Klasik fonksiyon içindeki 'this' window'u gösterdiği için self/that yöntemi kullanılır:
+            const self = this; 
+            classicId = setInterval(function() {
+                self.sayi++;
+                document.getElementById('classic-timer-display').innerHTML = self.sayi;
+            }, 1000);
+        }
+    };
+    sayacObj.baslat();
+});
+
+// 3. Arrow Sayaç (this kapsamını otomatik koruyan yöntem)
+document.getElementById('btn-arrow-timer').addEventListener('click', () => {
+    if(arrowId) clearInterval(arrowId);
+    
+    const sayacObjArrow = {
+        sayi: 0,
+        baslat() {
+            // Arrow fonksiyonları kendi 'this' bağlamını oluşturmaz, üst kapsamın (sayacObjArrow) 'this'ini miras alır.
+            arrowId = setInterval(() => {
+                this.sayi++;
+                document.getElementById('arrow-timer-display').innerHTML = this.sayi;
+            }, 1000); // -> Eksik olan virgül düzeltildi
+        }
+    };
+    sayacObjArrow.baslat();
+}); // -> Kapanış parantezleri ve süslü parantezler düzenlendi
+</script>
+</body>
+</html>

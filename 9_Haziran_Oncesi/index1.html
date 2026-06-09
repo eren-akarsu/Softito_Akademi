@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renk Değiştiren Kutu</title>
+    <style>
+        #renkKutusu {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #333;
+            margin-top: 20px;
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Kutu Rengi Değiştirici</h2>
+    <p>Kutuyu renklendirmek için <b>sarı</b> veya <b>kırmızı</b> yazın:</p>
+    
+    <input type="text" id="renkInput" placeholder="Renk yazın...">
+    <div id="renkKutusu"></div>
+
+    <script>
+        const inputAlani = document.getElementById('renkInput');
+        const kutu = document.getElementById('renkKutusu');
+
+        inputAlani.addEventListener('input', function() {
+            const kelime = inputAlani.value.toLowerCase().trim();
+
+            if (kelime === 'sarı' || kelime === 'sari') {
+                kutu.style.backgroundColor = 'yellow';
+            } else if (kelime === 'kırmızı' || kelime === 'kirmizi') {
+                kutu.style.backgroundColor = 'red';
+            } else {
+                kutu.style.backgroundColor = 'white';
+            }
+        });
+    </script>
+
+</body>
+</html>

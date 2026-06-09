@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col md:flex-row relative"
+  >
+    <aside
+      id="sidebar"
+      class="hidden md:flex flex-col w-48 bg-white border-r border-gray-200 p-4 shrink-0 gap-6 text-xs transition-all duration-200"
+    >
+      <div class="font-bold text-sm tracking-wider text-indigo-600">
+        Yönetim Paneli
+      </div>
+      <nav class="flex-1 space-y-1.5 font-semibold text-gray-600">
+        <span
+          class="block px-3 py-2 rounded bg-indigo-50 text-indigo-700 cursor-pointer"
+          >Anasayfa</span
+        >
+        <span class="block px-3 py-2 hover:bg-gray-50 rounded cursor-pointer"
+          >Kullanıcılar</span
+        >
+        <span class="block px-3 py-2 hover:bg-gray-50 rounded cursor-pointer"
+          >Raporlar</span
+        >
+      </nav>
+      <div class="text-[10px] text-gray-400">Oturum: Eren AKARSU</div>
+    </aside>
+
+    <header
+      class="md:hidden bg-white border-b border-gray-200 p-4 flex justify-between items-center text-xs z-20"
+    >
+      <span class="font-bold text-indigo-600">Yönetim Planı</span>
+      <button
+        onclick="toggleSidebar()"
+        class="px-2.5 bg-gray-100 border border-gray-200 rounded font-semibold text-[10px] text-gray-700"
+      >
+        Menü
+      </button>
+    </header>
+
+    <main class="flex-1 p-6 md:p-8 space-y-6 max-w-4xl w-full">
+      <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+        <h1 class="text-xl font-bold text-green-900 mb-1">Gösterge Paneli</h1>
+        <span class="text-gray-500 text-xs font-light"
+          >Flexbox ve Grid Yapısı Responsive Arayüz</span
+        >
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div
+          class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm flex flex-col p-4 justify-between gap-3"
+        >
+          <div>
+            <h3 class="font-bold text-xs text-gray-800">Aktif Kayıtlar</h3>
+            <p class="text-gray-500 text-xs font-light">Günlük Yeni Kayıtlar</p>
+          </div>
+          <button
+            class="w-full py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded text-[10px] font-bold mt-2"
+          >
+            Görüntüle
+          </button>
+        </div>
+
+        <div
+          class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm flex flex-col p-4 justify-between gap-3"
+        >
+          <div>
+            <h3 class="font-bold text-xs text-gray-800">Sistem Belleği</h3>
+            <p class="text-[10px] text-gray-500 leading-tight">
+              Sunucu Hafıza Durumu
+            </p>
+          </div>
+          <button
+            class="w-full py-1.5 bg-pink-600 hover:bg-pink-700 text-white rounded text-[10px] font-bold mt-2"
+          >
+            Görüntüle
+          </button>
+        </div>
+
+        <div
+          class="bg-indigo-400 border border-gray-200 rounded-xl overflow-hidden shadow-sm flex flex-col p-4 justify-between gap-3"
+        >
+          <div>
+            <h3 class="font-bold text-xs text-gray-800">Veri Tabanı</h3>
+            <p class="text-[10px] text-gray-500 leading-tight">
+              Günlük Yedekleme Durumu
+            </p>
+          </div>
+          <button
+            class="w-full py-1.5 bg-pink-600 hover:bg-pink-700 text-white rounded text-[10px] font-bold mt-2"
+          >
+            Görüntüle
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function toggleSider() {
+        var sidebar = document.getElementById("sidebar");
+        if (sidebar.classList.contains("hidden")) {
+          sidebar.classList.remove("hidden");
+          sidebar.classList.add(
+            "flex",
+            "absolute",
+            "top-12",
+            "left-0",
+            "h-full",
+            "z-10",
+            "shadow-lg",
+          );
+         } else {sidebar.classList.remove(
+            "flex",
+            "absolute",
+            "top-12",
+            "left-0",
+            "h-full",
+            "z-10",
+            "shadow-lg",
+          );
+sidebar.classList.add("hidden");
+
+         }          
+        }
+      
+    </script>
+  </body>
+</html>
