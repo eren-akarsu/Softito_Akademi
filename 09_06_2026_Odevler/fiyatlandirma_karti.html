@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <title>Fiyatlandırma Kartı Flex Column</title>
+
+   
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+  </head>
+
+  <!-- 
+  bg-indigo-50 = sayfanın arka plan rengini açık mor yapar.
+  text-gray-800 = genel yazı rengini koyu gri yapar.
+  font-sans = sade bir yazı tipi kullanır.
+  min-h-screen = sayfanın minimum yüksekliğini ekran kadar yapar.
+  p-8 = içerik ile ekran kenarları arasına boşluk bırakır.
+  flex = body'yi flex container yapar.
+  flex-col = elemanları alt alta sıralar.
+  items-center = elemanları yatayda ortalar.
+  justify-center = elemanları dikeyde ortalar.
+  gap-6 = elemanlar arasına boşluk bırakır.
+  -->
+  <body
+    class="bg-indigo-50 text-gray-800 font-sans min-h-screen p-8 flex flex-col items-center justify-center gap-6"
+  >
+
+    <!-- 
+    text-center = içindeki yazıları ortalar.
+    max-w-md = bu alanın çok fazla genişlemesini engeller.
+    -->
+    <div class="text-center max-w-md">
+
+      <div>
+
+        <!--
+        text-xl = yazıyı biraz büyütür.
+        font-bold = yazıyı kalın yapar.
+        text-gray-900 = daha koyu bir renk verir.
+        mb-2 = altına biraz boşluk bırakır.
+        -->
+        <h1 class="text-xl font-bold text-gray-900 mb-2">
+          Fiyatlandırma Kartı Flex Column
+        </h1>
+
+        <!--
+        text-xs = küçük yazı boyutu.
+        text-gray-500 = açık gri yazı rengi.
+        -->
+        <p class="text-xs text-gray-500">
+          Kart elemanları üst üste sıralamak için flex-col, öne çıkan rozeti en
+          üstte göstermek için ise order-first sınıfı kullanılır.
+        </p>
+
+      </div>
+
+      <!--
+      w-full = bulunduğu alanın tamamını kullanır.
+      max-w-xs = maksimum genişlik belirler.
+      bg-white = arka planı beyaz yapar.
+      border = kenarlık ekler.
+      border-gray-200 = kenarlık rengini belirler.
+      rounded-2xl = köşeleri yuvarlatır.
+      p-6 = içeride boşluk bırakır.
+      flex = flex yapısını aktif eder.
+      flex-col = elemanları alt alta dizer.
+      gap-4 = içerikler arasına boşluk bırakır.
+      shadow-sm = hafif gölge verir.
+      -->
+      <div class="w-full max-w-xs bg-white border border-gray-200 rounded-2xl p-6 flex flex-col gap-4 shadow-sm">
+
+        <div>
+
+          <!--
+          text-sm = küçük başlık boyutu.
+          font-bold = kalın yazı.
+          text-gray-800 = koyu gri renk.
+          uppercase = tüm harfleri büyük yapar.
+          tracking-wider = harfler arasındaki boşluğu artırır.
+          -->
+          <h2 class="text-sm font-bold text-gray-800 uppercase tracking-wider">
+            Standart Paket
+          </h2>
+
+          <!--
+          text-2xl = fiyatı büyük göstermek için kullanıldı.
+          font-extrabold = oldukça kalın yazı tipi.
+          text-gray-900 = koyu renk.
+          mt-1 = üstten biraz boşluk bırakır.
+          -->
+          <p class="text-2xl font-extrabold text-gray-900 mt-1">
+            99 TL / Ay
+          </p>
+
+        </div>
+
+        <!--
+        order-first = bu elemanı flex sıralamasında en üste taşır.
+        px-2.5 = sağ ve soldan iç boşluk verir.
+        py-1 = üst ve alttan iç boşluk verir.
+        bg-indigo-100 = açık mor arka plan.
+        border = kenarlık ekler.
+        border-indigo-200 = kenarlık rengini belirler.
+        text-indigo-700 = yazı rengini koyu mor yapar.
+        text-[9px] = özel yazı boyutu belirler.
+        font-extrabold = yazıyı kalınlaştırır.
+        rounded-full = tamamen oval görünüm verir.
+        self-start = genişliği içeriği kadar olur ve sola yaslanır.
+        uppercase = tüm harfleri büyütür.
+        tracking-wider = harf aralıklarını açar.
+        -->
+        <div class="order-first px-2.5 py-1 bg-indigo-100 border border-indigo-200 text-indigo-700 text-[9px] font-extrabold rounded-full self-start order-first uppercase tracking-wider">
+          En Popüler Paketimiz
+        </div>
+
+        <!--
+        text-xs = küçük yazı boyutu.
+        text-gray-500 = gri renk.
+        space-y-2 = alt alta gelen elemanlar arasında boşluk bırakır.
+        border = kenarlık oluşturur.
+        border-gray-100 = açık renk kenarlık.
+        pt-4 = üst taraftan iç boşluk verir.
+        -->
+        <div class="text-xs text-gray-500 space-y-2 border border-gray-100 pt-4">
+
+          <p>1 Sınırsız Proje</p>
+          <p>25 Tane Kişisel Proje</p>
+          <p>Grup Çalışması</p>
+
+        </div>
+
+        <!--
+        w-full = butonun tüm genişliği kaplamasını sağlar.
+        py-2 = üst ve alttan boşluk verir.
+        bg-indigo-600 = butonun normal rengi.
+        hover:bg-indigo-700 = fare üzerine gelince renk koyulaşır.
+        text-white = yazı rengini beyaz yapar.
+        rounded-lg = köşeleri yuvarlatır.
+        text-xs = küçük yazı boyutu.
+        font-semibold = yarı kalın yazı tipi.
+        transition-colors = renk değişiminin yumuşak olmasını sağlar.
+        mt-2 = üstten boşluk bırakır.
+        -->
+        <button class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition-colors mt-2">
+          Satın Al
+        </button>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

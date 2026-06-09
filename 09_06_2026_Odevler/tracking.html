@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Tracking Örnekleri</title>
+
+    <!-- Tailwind CSS kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-10 font-sans">
+
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow">
+
+        <h1 class="text-3xl font-bold mb-8 text-center">
+            Tailwind CSS Tracking Kullanımı
+        </h1>
+
+        <!-- tracking-tighter -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">1. tracking-tighter</h2>
+            <p class="tracking-tighter border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                Harfleri birbirine daha fazla yaklaştırır.
+            </p>
+        </div>
+
+        <!-- tracking-tight -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">2. tracking-tight</h2>
+            <p class="tracking-tight border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                Harfler arasında biraz daha az boşluk bırakır.
+            </p>
+        </div>
+
+        <!-- tracking-normal -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">3. tracking-normal</h2>
+            <p class="tracking-normal border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                Varsayılan harf aralığını kullanır.
+            </p>
+        </div>
+
+        <!-- tracking-wide -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">4. tracking-wide</h2>
+            <p class="tracking-wide border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                Harfler arasındaki boşluğu artırır.
+            </p>
+        </div>
+
+        <!-- tracking-wider -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">5. tracking-wider</h2>
+            <p class="tracking-wider border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                Harfler arasında daha fazla boşluk bırakır.
+            </p>
+        </div>
+
+        <!-- tracking-widest -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">6. tracking-widest</h2>
+            <p class="tracking-widest border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                En geniş hazır harf aralığını verir.
+            </p>
+        </div>
+
+        <!-- Özel değer -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">7. tracking-[5px]</h2>
+            <p style="letter-spacing:5px;" class="border p-3">
+                Merhaba Dünya
+            </p>
+            <p class="text-sm text-gray-500 mt-1">
+                İstenilen özel harf aralığı verilebilir.
+            </p>
+        </div>
+
+        <!-- Başlık örneği -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">Başlık Kullanımı</h2>
+            <h1 class="text-2xl font-bold uppercase tracking-wider border p-3">
+                FİYATLANDIRMA KARTI
+            </h1>
+        </div>
+
+        <!-- Rozet örneği -->
+        <div class="mb-6">
+            <h2 class="font-bold mb-2">Rozet (Badge) Kullanımı</h2>
+            <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full uppercase tracking-wide font-bold">
+                En Popüler Paket
+            </span>
+        </div>
+
+        <!-- Karşılaştırmalı örnek -->
+        <div>
+            <h2 class="font-bold mb-2">Karşılaştırma</h2>
+
+            <p class="tracking-tight border p-2 mb-2">
+                tracking-tight → Merhaba Dünya
+            </p>
+
+            <p class="tracking-normal border p-2 mb-2">
+                tracking-normal → Merhaba Dünya
+            </p>
+
+            <p class="tracking-widest border p-2">
+                tracking-widest → Merhaba Dünya
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
