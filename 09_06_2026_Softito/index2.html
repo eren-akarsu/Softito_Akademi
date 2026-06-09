@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Filter / Method</title>
+  </head>
+
+  <body>
+    <div>
+      <h1>map() ve filter() Dizi Methodları</h1>
+    </div>
+    <hr />
+
+    <div>
+      <label>Ürün Arama</label>
+      <input type="text" id="input-search" />
+    </div>
+    <br />
+
+    <div>
+      <label>Maksimum Fiyat</label>
+      <input type="number" id="input-price-limit" value="50000" />
+    </div>
+    <br />
+
+    <div>
+      <button id="btn-filter">Filtrele</button>
+    </div>
+
+    <div>
+      <h3>Ürün Listesi</h3>
+      <div id="products-list"></div>
+    </div>
+
+    <script>
+      const products = [
+        { id: 1, ad: 'Iphone 17 Pro Max', fiyat: 11000 },
+        { id: 2, ad: 'Samsung S26 Ultra', fiyat: 45000 },
+        { id: 3, ad: 'Xiaomi 16 Ultra', fiyat: 38000 },
+        { id: 4, ad: 'Nintendo Switch 2', fiyat: 15000 },
+        { id: 5, ad: 'PlayStation 6 Pro', fiyat: 35000 }
+      ];
+
+      const listele = () => {
+        const arama = document.getElementById('input-search').value.toLowerCase();
+        const limit = parseFloat(document.getElementById('input-price-limit').value) || 99999;
+        
+        const filtrelenmis = products.filter(product => {
+          return product.ad.toLowerCase().includes(arama) && product.fiyat <= limit;
+        });
+
+        const kartlarHTML = filtrelenmis.map(product => `
+          <div>
+            <span>${product.ad}</span> - <span>${product.fiyat} TL</span>
+          </div>
+        `).join('');
+
+        document.getElementById('products-list').innerHTML = kartlarHTML || `<div>Ürün bulunamadı.</div>`;
+      };
+
+      document.getElementById('btn-filter').addEventListener('click', listele);
+      
+      listele();
+    </script>
+  </body>
+</html>

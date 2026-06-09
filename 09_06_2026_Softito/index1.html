@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <div>
+        <h3>Dinamik Argüman Toplama</h3>
+        <br />
+        <div>
+          <input type="text" id="input-args" value="10,20,30" />
+          <button id="btn-sum">Topla</button>
+        </div>
+
+        <div id="sum-result">Toplam: 0</div>
+      </div>
+      <br />
+
+      <div>
+        <h3>Rest Elemanı</h3>
+        <br />
+        <button id="btn-rest">Diziyi Parçala</button><br />
+        <br />
+        <div id="rest-result"><br />Sonuç Oluşturulamadı</div>
+        <br />
+      </div>
+    </center>
+
+    <script>
+      document.getElementById("btn-sum").addEventListener("click", () => {
+        const text = document.getElementById("input-args").value;
+        const sayilar = text.split(",").map((x) => parseFloat(x.trim()) || 0);
+        const topla = (...parametreler) => {
+          return parametreler.reduce((a, b) => a + b, 0);
+        };
+        document.getElementById("sum-result").innerText =
+          "Toplam sonuc:" + topla(...sayilar);
+      });
+
+      document.getElementById('btn-rest').addEventListener('click',()=>{
+const veriler = ['Ali', 'Front-10', 90,10,20];
+const [ad,sinif,...notlar]=veriler;
+document.getElementById('rest-result').innerHTML=`
+<div>Ad:${ad}</div>
+<div>Sınıf:${sinif}</div>
+<div>Notlar:(rest dizisi):${JSON.stringify(notlar)}</div>`
+
+
+      })
+    </script>
+  </body>
+</html>

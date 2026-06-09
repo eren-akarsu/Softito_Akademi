@@ -48,6 +48,16 @@
         document.getElementById('orig-arr').innerText=JSON.stringify(orijinal);
         document.getElementById('copy-arr').innerText=JSON.stringify(kopya); 
     });
+
+    document.getElementById('btn-merge-obj').addEventListener('click', ()=>{
+
+const varsayilan={tema:'koyu', dil:'TR'};
+const kullanici={dil: 'EN'};
+const sonNesne={...varsayilan, ...kullanici};
+document.getElementById('merge-result').innerHTML=`<div>Oluşan Nesne:${JSON.stringify(sonNesne)}</div>`
+
+
+    })
 </script>
 
 </body>
