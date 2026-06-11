@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.0.4/typescript.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="p-6 bg-white">
+        <h1 class="text-xl font-bold">Genel Fonksiyonlar</h1>
+        <div class="space-y-2 mb-2">
+            <button id="btn-numbers" class="p-2 bg-blue-200">Sayı dizinden ilk elemanı çek</button>
+            <button id="btn-strings" class="p-2 bg-green-200">Metin Dizisinden İlk Elemanı Çek</button>
+        </div>
+        <div class="p-2 border" id="result">Sonuç Bekleniyor</div>
+    </div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll('script[type="text/typescript"]')
+      .forEach((script) => {
+        const js = window.ts.transpile(script.textContent);
+        const newScript = document.createElement("script");
+        newScript.textContent = js;
+        document.body.appendChild(newScript);
+      });
+  });
+</script>
+
+<script type="text/typescript">
+    const out = document.getElementById('result') as HTMLDivElement;
+    function ilkElemaniAl<T>(dizi:T[]):T {
+        return dizi[0];
+        }
+        const sayilar:number[] =[100,200,300];
+        const ogrenciler:string[]=["kemal","veli","onur"];
+        document.getElementById('btn-numbers').addEventListener('click', () => {
+            const sonuc = ilkElemaniAl<number>(sayilar);
+                out.innerText = "sayi dizisinin ilk elemanı" + sonuc + "(tip: " + typeof sonuc +")"; 
+        })
+
+
+          document.getElementById('btn-strings').addEventListener('click', () => {
+            const sonuc = ilkElemaniAl<string>(ogrenciler);
+                out.innerText = "metin dizisinin ilk elemanı" + sonuc + "(tip: " + typeof sonuc +")"; 
+        })
+</script>
+
+</body>
+</html>

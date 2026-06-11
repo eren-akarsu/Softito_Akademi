@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+  </head>
+
+  <body class="p-6 bg-gray-200">
+    <div class="p-6 bg-white">
+      <h1 class="text-xl font-bold">
+        Readonly ve Opsiyonel arayüz özellikleri
+      </h1>
+      <div id="customer-card" class="p-4 border">Yükleniyor</div>
+      <div class="mt-4 space-y-2">
+        <div>
+          <label class="block">İsim Güncelle</label>
+          <input type="text" id="inp-name" class="p-1 border" />
+        </div>
+
+        <div>
+          <label class="block">Eposta Güncelle(opsiyonel)</label>
+          <input type="text" id="inp-email" class="p-1 border" />
+        </div>
+
+        <button id="btn-update" class="p-2 bg-yellow-200">
+          Bilgileri Güncelle
+        </button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const musteri1 = {
+        tcNo: "111112223333",
+        isim: "Kemal Veli Onur"
+      };
+
+      const out = document.getElementById('customer-card');
+
+      const musteriGoster = () => {
+        out.innerHTML = `
+          <strong>Müşteri Kartı:</strong><br>
+          Tc No (Readonly): ${musteri1.tcNo}<br>
+          İsim: ${musteri1.isim}<br>
+          E-posta: ${musteri1.eposta ? musteri1.eposta : "Eklenmemiş"}
+        `;
+      };
+
+      musteriGoster();
+
+      document.getElementById('btn-update').addEventListener('click', () => {
+        const nameVal = document.getElementById('inp-name').value;
+        const emailVal = document.getElementById('inp-email').value;
+
+        if (nameVal) {
+          musteri1.isim = nameVal;
+        }
+
+        if (emailVal) {
+          musteri1.eposta = emailVal;
+        } else {
+          delete musteri1.eposta;
+        }
+
+        musteriGoster();
+      });
+    </script>
+  </body>
+</html>
