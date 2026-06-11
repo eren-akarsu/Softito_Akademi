@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Metot Örnekleri</title>
+</head>
+<body>
+
+    <h1>JavaScript Metot Örnekleri</h1>
+
+    <script>
+        // 1. map()
+        let sayilar = [1, 2, 3, 4];
+        let ikiKat = sayilar.map(sayi => sayi * 2);
+        console.log("map:", ikiKat);
+
+        // 2. find()
+        let bulunan = sayilar.find(sayi => sayi > 2);
+        console.log("find:", bulunan);
+
+        // 3. reduce()
+        let toplam = sayilar.reduce((a, b) => a + b, 0);
+        console.log("reduce:", toplam);
+
+        // 4. filter()
+        let filtreli = sayilar.filter(sayi => sayi > 2);
+        console.log("filter:", filtreli);
+
+        // 5. some()
+        let herhangiBiri = sayilar.some(sayi => sayi > 3);
+        console.log("some:", herhangiBiri);
+
+        // 6. every()
+        let hepsiPozitif = sayilar.every(sayi => sayi > 0);
+        console.log("every:", hepsiPozitif);
+
+        // 7. push()
+        let meyveler = ["Elma", "Armut"];
+        meyveler.push("Muz");
+        console.log("push:", meyveler);
+
+        // 8. includes()
+        console.log("includes:", meyveler.includes("Muz"));
+
+        // 9. toLowerCase()
+        let buyukYazi = "EREN";
+        console.log("toLowerCase:", buyukYazi.toLowerCase());
+
+        // 10. toUpperCase()
+        let kucukYazi = "eren";
+        console.log("toUpperCase:", kucukYazi.toUpperCase());
+
+        // 11. trim()
+        let boslukluMetin = "   Merhaba Dünya   ";
+        console.log("trim:", boslukluMetin.trim());
+
+        // 12. split()
+        let metin = "elma,armut,muz";
+        let dizi = metin.split(",");
+        console.log("split:", dizi);
+
+        // 13. join()
+        let birlestirilmis = dizi.join("-");
+        console.log("join:", birlestirilmis);
+
+        // 14. parseFloat()
+        let sayiMetni = "12.5";
+        console.log("parseFloat:", parseFloat(sayiMetni));
+
+        // 15. setInterval()
+        let intervalId = setInterval(() => {
+            console.log("setInterval: Merhaba");
+        }, 1000);
+
+        // 16. clearInterval()
+        setTimeout(() => {
+            clearInterval(intervalId);
+            console.log("clearInterval: Interval durduruldu.");
+        }, 5000);
+    </script>
+
+</body>
+</html>
