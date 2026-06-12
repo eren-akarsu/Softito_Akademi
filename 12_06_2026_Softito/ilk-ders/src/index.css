@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+--text: #374151;
+--text-h: #111827;
+--bg: #f3f4f6;
+--border: #e5e7eb;
+--code-bg: #f9fafb;
+--accent: #2563eb;
+--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+--sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+--mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+
+font-family: var(--sans);
+color-scheme: light;
+color: var(--text);
+background-color: var(--bg);
+}
+
+body {
+margin: 0;
+background-color: var(--bg);
+min-height: 100vh;
+}
+
+#root {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+text-align: left;
+min-height: 100vh;
+box-sizing: border-box;
+background-color: #ffffff;
+padding: 1.5rem;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4 {
+color: var(--text-h);
+font-weight: 600;
+margin-top: 0;
+}
+
+code {
+font-family: var(--mono);
+background-color: var(--code-bg);
+padding: 2px 6px;
+border-radius: 4px;
+font-size: 0.9em;
+}
+
+button {
+cursor: pointer;
+padding: 0.5rem 1rem;
+border-radius: 6px;
+font-weight: 500;
+border: 1px solid var(--border);
+transition: all 0.2s;
+text-align: left;
+}
+
+button:hover {
+background-color: #f3f4f6;
+}
+
+input {
+outline: none;
+border: 1px solid var(--border);
+border-radius: 6px;
+}
+
+input:focus {
+border-color: var(--accent);
+}
+
+.sidebar-list {
+padding: 0.5rem;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.card {
+background-color: #ffffff;
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 1.25rem;
+margin-bottom: 1rem;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.input-field {
+width: 100%;
+padding: 0.75rem;
+border: 1px solid var(--border);
+border-radius: 6px;
+background-color: #f9fafb;
+font-size: 1rem;
+}
+
+.input-field:focus {
+border-color: var(--accent);
+background-color: #ffffff;
+}
+
+.badge-success {
+display: inline-block;
+padding: 0.25rem 0.5rem;
+background-color: #def7ec;
+color: #03543f;
+font-size: 0.875rem;
+font-weight: 600;
+border-radius: 4px;
+}
+
+.badge-danger {
+display: inline-block;
+padding: 0.25rem 0.5rem;
+background-color: #fde8e8;
+color: #9b1c1c;
+font-size: 0.875rem;
+font-weight: 600;
+border-radius: 4px;
+}
+
+.product-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 1rem;
+}
+
+.btn-blue {
+background-color: #2563eb;
+color: #ffffff;
+border: 1px solid #1d4ed8;
+}
+.btn-blue:hover {
+background-color: #1d4ed8;
+}
+
+.btn-gray {
+background-color: #f3f4f6;
+color: #374151;
+border: 1px solid #d1d5db;
+}
+.btn-gray:hover {
+background-color: #e5e7eb;
+}
+
+.btn-green {
+background-color: #057a55;
+color: #ffffff;
+border: 1px solid #046c4e;
+}
+.btn-green:hover {
+background-color: #046c4e;
+}
+
+.btn-red {
+background-color: #e02424;
+color: #ffffff;
+border: 1px solid #c81e1e;
+}
+.btn-red:hover {
+background-color: #c81e1e;
+}
+
+.ecom-layout {
+display: grid;
+grid-template-columns: 2fr 1fr;
+gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+.ecom-layout {
+grid-template-columns: 1fr;
+}
+}
