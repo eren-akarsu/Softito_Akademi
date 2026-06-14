@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.0.4/typescript.min.js"></script>
+    <title>Document</title>
+  </head>
+
+  <body class="p-6 bg-gray-200">
+    <div class="p-6 bg-white">
+      <h1 class="text-xl font-bold">Dizi ve Tuple Yapılar</h1>
+
+  <div class="mb-4">
+    <label class="block text-xs">Yeni Not Ekle</label>
+    <input type="number" id="input-score" value="30" />
+  </div>
+
+  <button id="btn-add" class="p-2 bg-green-200">Diziye Ekle</button>
+  <button id="btn-show-score" class="p-2 bg-blue-200">Tuple Göster</button>
+  <div id="result" class="mt-4 p-2">Dizi Boş</div>
+</div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll('script[type="text/typescript"]')
+      .forEach((script) => {
+        const js = window.ts.transpile(script.textContent);
+        const newScript = document.createElement("script");
+        newScript.textContent = js;
+        document.body.appendChild(newScript);
+      });
+  });
+</script>
+
+<script type="text/typescript">
+
+
+    const notlar: number[] = [70,90];
+    const okulKonum: [number,number] = [41.0031, 28.0034];
+    const out:document.getElementById('result') as HTMLDivElement;
+
+    const listeyiCiz = () => {
+        out.innerText = "Mevcut Notlar:" + notlar.join(", ");
+    }
+    listeyiCiz();
+
+    document.getElementById('btn-add').addEventListener('click', () => {
+        
+        const score = document.getElementById('input-score') as HTMLInputElement;
+        const yeniNot: number = Number(score.value);
+
+        if(!isNan(yeniNot)) {
+            notlar.push(yeniNot);
+            listeyiCiz();
+        }
+
+        document.getElementById('btn-show-score').addEventListener('click', () => {
+            out.innerText = "Okul Konum Tuple Değeri: Enlem" + okulKonum[0]+ ", Boylam" + okulKonum[1];
+        })
+
+        
+    })
+
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.0.4/typescript.min.js"></script>s
+    <title>Fonksiyon - Tipler</title>
+</head>
+<body class="p-6 bg-gray-100">
+
+<div class="p-6 bg-white">
+
+<h1 class="text-xl font-bold">Fonksiyonlarda Tipler</h1>
+<div class="mb-2">
+    <input type="number" id="num1" value="10" class="pl-1 border">
+</div>
+
+<div class="mb-2">
+    <input type="number" id="num2" value="10" class="pl-1 border">
+</div>
+
+<div class="space-x-2 mb-4">
+    <button id="btn-add" class="p-2 bg-blue-200">Topla</button>
+    <button id="btn-mult" class="p-2 bg-green-200">Çarp</button>
+</div>
+
+<div id="result" class="p-2 border">Hesaplama Yapılmadı</div>
+
+</div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll('script[type="text/typescript"]')
+      .forEach((script) => {
+        const js = window.ts.transpile(script.textContent);
+        const newScript = document.createElement("script");
+        newScript.textContent = js;
+        document.body.appendChild(newScript);
+      });
+  });
+</script>
+
+
+
+<script type="text/typescript">
+    const out = document.getElementById('result') as HTMLDivElement;
+
+    const hesapla = (a:number,b:number,islem:string):number=>{
+        if(islem === 'toplam') {
+            return a + b;
+        } else if (islem === 'carp') {
+            return a * b;
+        }
+        return 0;
+    }
+
+    const raporFormatla = (sonuc:number,prefix?:string):string => {
+        if(prefix) {
+            return prefix + "" + sonuc;
+        }
+        return "işlem Sonucu:" + sonuc;
+    }
+
+    document.getElementById('btn-add').addEventListener('click', () => {
+        const n1 = Number((document.getElementById('num1') as HTMLInputElement).value);
+        const n2 = Number((document.getElementById('num1') as HTMLInputElement).value);
+        const sonuc = hesapla(n1,n2,'toplam');
+        out.innerText = raporFormatla(sonuc, 'Toplam Değer Toplama Sonucu:');
+    })
+
+    document.getElementById('btn-mult').addEventListener('click', () => {
+        const n1 = Number((document.getElementById('num1') as HTMLInputElement).value);
+        const n2 = Number((document.getElementById('num1') as HTMLInputElement).value);
+        const sonuc = hesapla(n1,n2,'carp');
+        out.innerText = raporFormatla(sonuc);
+    })
+</script>
+<script></script>
+
+</body>
+</html>

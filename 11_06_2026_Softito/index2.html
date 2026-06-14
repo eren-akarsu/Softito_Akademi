@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.0.4/typescript.min.js"></script>
+    <title>Document</title>
+</head>
+<body class="p-6 bg-gray-100">
+
+    <div class="p-6">
+        <h1 class="text-xl font-bold mb-4">Arayüz (Interface) Yapısı</h1>
+
+        <div class="mb-4 space-x-2">
+            <input id="prod-name" type="text" placeholder="Ürün Adı" class="p-1 border bg-white">
+            <input id="prod-price" type="number" placeholder="Ürün Fiyatı" class="p-1 border bg-white">
+        </div>
+        <button id="btn-add" class="p-2 bg-blue-500 text-white rounded cursor-pointer">Ürün Ekle</button>
+        <ul id="product-list" class="list-disc pl-5 space-y-1 mt-4"></ul>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelectorAll('script[type="text/typescript"]')
+          .forEach((script) => {
+            const js = window.ts.transpile(script.textContent);
+            const newScript = document.createElement("script");
+            newScript.textContent = js;
+            document.body.appendChild(newScript);
+          });
+      });
+    </script>
+
+    <script type="text/typescript">
+        interface Urun {
+            id: number;
+            ad: string;
+            fiyat: number;
+        }
+
+        // HATA DÜZELTİLDİ: Eşittir (=) yerine iki nokta (:) kullanıldı ve araya virgül eklendi.
+        const urunler: Urun[] = [
+            { id: 1, ad: "Defter", fiyat: 40 },
+            { id: 2, ad: "Kalem", fiyat: 20 }
+        ];
+
+        // HATA DÜZELTİLDİ: HTMLLinkElement yerine HTMLUListElement kullanıldı.
+        const listElement = document.getElementById('product-list') as HTMLUListElement;
+
+        const listeyiCiz = () => {
+            listElement.innerHTML = "";
+            urunler.forEach(u => {
+                const li = document.createElement('li');
+                // HATA DÜZELTİLDİ: String birleştirme hatası giderildi, Template Literal kullanıldı.
+                li.innerText = `${u.ad} - Fiyat: ${u.fiyat} TL (Ürün Kodu: ${u.id})`;
+                listElement.appendChild(li);
+            });
+        };
+
+        // İlk açılışta listeyi doldur
+        listeyiCiz();
+
+        document.getElementById('btn-add')?.addEventListener('click', () => {
+            const nameInp = document.getElementById('prod-name') as HTMLInputElement;
+           
+            const priceInp = document.getElementById('prod-price') as HTMLInputElement;
+
+            const adValue = nameInp.value.trim();
+           
+            const fiyatValue = parseFloat(priceInp.value);
+
+          
+            if (adValue && !isNaN(fiyatValue)) {
+                const yeniUrun: Urun = {
+                    id: urunler.length > 0 ? urunler[urunler.length - 1].id + 1 : 1, // Benzersiz ID üretimi
+                    ad: adValue,
+                    fiyat: fiyatValue
+                };
+                 
+                urunler.push(yeniUrun);
+                listeyiCiz();
+                
+                // Formu temizle
+                nameInp.value = "";
+                priceInp.value = "";
+            } else {
+                alert("Lütfen geçerli bir ürün adı ve fiyatı girin.");
+            }
+        });
+    </script>
+    
+</body>
+</html>
