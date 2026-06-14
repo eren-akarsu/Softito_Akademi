@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Relative Kullanımı</title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-10 font-sans">
+
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow">
+
+        <h1 class="text-3xl font-bold text-center mb-8">
+            Tailwind CSS Relative Kullanımı
+        </h1>
+
+        <!-- Örnek 1 -->
+        <div class="mb-12">
+            <h2 class="font-bold mb-2">1. Sadece relative Kullanımı</h2>
+
+            <div class="relative border border-gray-300 p-6 bg-gray-50">
+                Bu kutuya relative verildi.
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                relative tek başına kullanıldığında kutunun normal yerleşimini bozmaz. Genellikle içindeki absolute elemanlara referans olması için kullanılır.
+            </p>
+        </div>
+
+        <!-- Örnek 2 -->
+        <div class="mb-12">
+            <h2 class="font-bold mb-2">2. Relative + Absolute Kullanımı</h2>
+
+            <div class="relative border border-gray-300 p-10 bg-gray-50">
+
+                Ana Kutu
+
+                <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 text-xs">
+                    Yeni
+                </div>
+
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Burada kırmızı etiket absolute kullanıyor. Konumunu relative verilen kutuya göre hesaplıyor.
+            </p>
+        </div>
+
+        <!-- Örnek 3 -->
+        <div class="mb-12">
+            <h2 class="font-bold mb-2">3. Sol Üst Köşe</h2>
+
+            <div class="relative h-32 border border-gray-300 bg-gray-50">
+
+                <div class="absolute top-0 left-0 bg-blue-500 text-white p-2">
+                    Sol Üst
+                </div>
+
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                absolute eleman relative kutunun sol üst köşesine yerleşir.
+            </p>
+        </div>
+
+        <!-- Örnek 4 -->
+        <div class="mb-12">
+            <h2 class="font-bold mb-2">4. Sağ Alt Köşe</h2>
+
+            <div class="relative h-32 border border-gray-300 bg-gray-50">
+
+                <div class="absolute bottom-0 right-0 bg-green-500 text-white p-2">
+                    Sağ Alt
+                </div>
+
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                absolute eleman relative kutunun sağ alt köşesine yerleştirilmiştir.
+            </p>
+        </div>
+
+        <!-- Örnek 5 -->
+        <div class="mb-12">
+            <h2 class="font-bold mb-2">5. Profil Kartı Rozeti</h2>
+
+            <div class="relative w-64 p-6 border rounded-lg bg-white shadow">
+
+                <h3 class="font-bold">Eren Yılmaz</h3>
+                <p class="text-sm text-gray-500">Frontend Developer</p>
+
+                <div class="absolute -top-3 -right-3 bg-yellow-400 px-3 py-1 rounded-full text-xs font-bold">
+                    VIP
+                </div>
+
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Relative sayesinde VIP rozeti kartın köşesine sabitlenmiştir.
+            </p>
+        </div>
+
+        <!-- Örnek 6 -->
+        <div class="mb-12">
+            <h2 class="font-bold mb-2">6. Bildirim İkonu</h2>
+
+            <div class="relative w-20 h-20 bg-indigo-500 rounded-lg flex items-center justify-center text-white text-3xl">
+
+                🔔
+
+                <div class="absolute top-0 right-0 w-6 h-6 bg-red-500 rounded-full text-xs flex items-center justify-center">
+                    5
+                </div>
+
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Bildirim sayısı ikonun köşesine yerleştirilmiştir.
+            </p>
+        </div>
+
+        <!-- Örnek 7 -->
+        <div>
+            <h2 class="font-bold mb-2">Karşılaştırma</h2>
+
+            <div class="border p-4 mb-4">
+                Relative Yok
+            </div>
+
+            <div class="relative border p-4">
+                Relative Var
+            </div>
+
+            <p class="text-sm text-gray-500 mt-2">
+                Relative verildiğinde içerideki absolute elemanlar bu kutuyu referans alabilir. En yaygın kullanım amacı budur.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
