@@ -1,0 +1,157 @@
+[
+  {
+    "id": "react-nextjs",
+    "title": "İleri Seviye Web Geliştirme: React ve Next.js",
+    "category": "Yazılım",
+    "description": "Modern web teknolojileri ile profesyonel seviyede tam donanımlı uygulamalar geliştirmeyi öğrenin.",
+    "price": 249.99,
+    "oldPrice": 1299.00,
+    "rating": 4.8,
+    "ratingCount": 12450,
+    "students": 45892,
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuASUH_TBN_FZFGqteUpmP5S6gJeiZHbpv31TvpuPD82S9kYUnS5rLuTSwItbbITcpV-_SkeGOIMZ2Nz09LPhpgiQTeHQAq6tPKph2mhzZmO0E2NHk-NdsZJUMjCY7xboyV3ne_PTDPFoazKxplNObvzTkGydQSLDusi4vytY34rkGlo9MQxtWaU2yxhGkSD4DmOZHnmU8quF2Gx3ZUOC5tZrnaDsIRYPVQ6jNdxVpupqs9Z3RK3sc-z_uPoKIf8gnOaz7vC1VgBkaOY",
+    "instructor": {
+      "name": "Dr. Arda Yılmaz",
+      "role": "Senior Software Architect",
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuAUBqNMEoI4RtT45gouUhVIsOtks9f9iZUjhoobqXe0nJLJJKnRA_BQ6wprq0aRtMMdVsQ4UvY_ytuZ28kgY3Fwo8RYX7c7S4gBO-yBDtGnKXHdmUdlwZxM7z6aNgXeOtx-cT2hlT08AJydSm17gQUlUZw48eJ3BHE9QT0GcyvEwdmmqpjkFc_HzsqnBbmjl9ijSLeZlWV_hhN8DL3kTgBhTnxsRvA1AzOIJsd9HYQk3Vvb77yt88zUNxHfpqrWOZdiPXEqydS_jwqS"
+    },
+    "learningOutcomes": [
+      "Sıfırdan ileri seviyeye React ve modern kütüphane ekosistemi.",
+      "Next.js 14 ile Sunucu Tarafı Render (SSR) ve Statik Site Üretimi (SSG).",
+      "Tailwind CSS ile yüksek performanslı ve modern arayüz tasarımları.",
+      "Redux Toolkit ve Context API ile karmaşık state yönetimi stratejileri."
+    ],
+    "curriculum": [
+      {
+        "title": "Bölüm 1: Temeller ve Kurulum",
+        "duration": "24 dk",
+        "lessons": [
+          {
+            "id": "react-l1",
+            "title": "Geliştirme Ortamının Hazırlanması",
+            "duration": "05:12",
+            "status": "completed",
+            "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4"
+          },
+          {
+            "id": "react-l2",
+            "title": "React Neden Tercih Edilmeli?",
+            "duration": "08:45",
+            "status": "completed",
+            "videoUrl": "https://www.w3schools.com/html/movie.mp4"
+          }
+        ]
+      },
+      {
+        "title": "Bölüm 2: Component Mimarisi",
+        "duration": "1 sa 15 dk",
+        "lessons": [
+          {
+            "id": "react-l3",
+            "title": "JSX Temelleri ve Kurallar",
+            "duration": "12:30",
+            "status": "watching",
+            "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4"
+          },
+          {
+            "id": "react-l4",
+            "title": "Props ve State Yönetimi",
+            "duration": "15:10",
+            "status": "locked",
+            "videoUrl": "https://www.w3schools.com/html/movie.mp4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-science",
+    "title": "İleri Seviye Veri Bilimi ve Makine Öğrenmesi",
+    "category": "Yazılım",
+    "description": "Python, Pandas, Scikit-Learn ve TensorFlow ile veri analitiği ve yapay zeka modelleri geliştirin.",
+    "price": 1249.00,
+    "oldPrice": 2499.00,
+    "rating": 4.9,
+    "ratingCount": 8420,
+    "students": 24890,
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDZFPvAoOMijmpie_8AyKHYf5k_W9M_on6ODhwW-iX6EvtIiedFOR4-e3HR0m0Vxwuwv5m3hBhpsjDSP80Vtlj4ndnb1K_gXPGgvd8D5ghDG0k2ANl1-1uuJQEhECGUFY8DFYqQSLr9rJrouZxkEDNEgExMA1s2Lhg01Opwv7eHDKb-_J7ot8mNSUsRvp9cYrA0rkusA53nBuo2f8FZHgs0r_YxvGPXcXdc2p4MgRqHIct7axtbNV3dSAk9bkDHftEBQKBegj_sjL3b",
+    "instructor": {
+      "name": "Dr. Arda Yılmaz",
+      "role": "Data Scientist & AI Researcher",
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuAUBqNMEoI4RtT45gouUhVIsOtks9f9iZUjhoobqXe0nJLJJKnRA_BQ6wprq0aRtMMdVsQ4UvY_ytuZ28kgY3Fwo8RYX7c7S4gBO-yBDtGnKXHdmUdlwZxM7z6aNgXeOtx-cT2hlT08AJydSm17gQUlUZw48eJ3BHE9QT0GcyvEwdmmqpjkFc_HzsqnBbmjl9ijSLeZlWV_hhN8DL3kTgBhTnxsRvA1AzOIJsd9HYQk3Vvb77yt88zUNxHfpqrWOZdiPXEqydS_jwqS"
+    },
+    "learningOutcomes": [
+      "Python ile veri analizi ve görselleştirme kütüphanelerinde uzmanlaşma.",
+      "Makine öğrenmesi algoritmalarının matematiksel temelleri ve pratik uygulamaları.",
+      "TensorFlow ve Keras ile Derin Öğrenme modelleri oluşturma.",
+      "Gerçek hayat projeleri ile veri madenciliği süreçlerinin yönetimi."
+    ],
+    "curriculum": [
+      {
+        "title": "Bölüm 1: Giriş ve Python Temelleri",
+        "duration": "45 dk",
+        "lessons": [
+          {
+            "id": "ds-l1",
+            "title": "Veri Bilimi Nedir?",
+            "duration": "10:15",
+            "status": "completed",
+            "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4"
+          },
+          {
+            "id": "ds-l2",
+            "title": "Jupyter Notebook Kullanımı",
+            "duration": "15:30",
+            "status": "completed",
+            "videoUrl": "https://www.w3schools.com/html/movie.mp4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ui-design",
+    "title": "İleri Seviye UI Tasarım ve Prototipleme",
+    "category": "Tasarım",
+    "description": "Figma, Adobe XD ve Figma prototipleme araçları ile harika kullanıcı arayüzleri ve kullanıcı deneyimleri tasarlayın.",
+    "price": 1249.00,
+    "oldPrice": 1999.00,
+    "rating": 4.7,
+    "ratingCount": 4210,
+    "students": 15820,
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAonuEFxUslpuR-StMGRl1XGKZLyifyPsr9hPf-SJzdq3ceCrMgf3588jBB7IjdfUW3hv0zU5TRJ9oymWYoULOHsqcoHEm0iWZY3m7dj-9vzpMcUtqVDUhZuZv2myq6cZM6sVSrUvmHUlpKy5875njZ2O5cEbnIs5Ov7ELTL5r8CAfLmTUjAVp6pOpvFnBlI01CiU5bff5qKpEMGjjVTe3J3isDW2IUEOjqmS1T-iFnR3Lqh7D8lsOVEh0yEe2PZUcyMwxGdkKzWjwU",
+    "instructor": {
+      "name": "Dr. Arda Yılmaz",
+      "role": "Senior UX/UI Designer",
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuAUBqNMEoI4RtT45gouUhVIsOtks9f9iZUjhoobqXe0nJLJJKnRA_BQ6wprq0aRtMMdVsQ4UvY_ytuZ28kgY3Fwo8RYX7c7S4gBO-yBDtGnKXHdmUdlwZxM7z6aNgXeOtx-cT2hlT08AJydSm17gQUlUZw48eJ3BHE9QT0GcyvEwdmmqpjkFc_HzsqnBbmjl9ijSLeZlWV_hhN8DL3kTgBhTnxsRvA1AzOIJsd9HYQk3Vvb77yt88zUNxHfpqrWOZdiPXEqydS_jwqS"
+    },
+    "learningOutcomes": [
+      "Figma arayüz bileşenleri oluşturma ve oto-düzen (auto-layout) pratikleri.",
+      "Kullanıcı Deneyimi (UX) araştırma teknikleri ve tel kafes (wireframe) çizimi.",
+      "İleri seviye prototipleme ve etkileşimli mikro-animasyonlar.",
+      "Tasarım sistemleri (Design Systems) kurma ve yönetme."
+    ],
+    "curriculum": [
+      {
+        "title": "Bölüm 1: Figma Başlangıç",
+        "duration": "30 dk",
+        "lessons": [
+          {
+            "id": "ui-l1",
+            "title": "Figma Arayüzünü Tanıma",
+            "duration": "08:12",
+            "status": "completed",
+            "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4"
+          },
+          {
+            "id": "ui-l2",
+            "title": "Temel Çizim Araçları",
+            "duration": "12:45",
+            "status": "completed",
+            "videoUrl": "https://www.w3schools.com/html/movie.mp4"
+          }
+        ]
+      }
+    ]
+  }
+]

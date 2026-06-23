@@ -1,0 +1,977 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #020304;
+  --color-on-primary: #ffffff;
+  --color-secondary: #8c06d8;
+  --color-on-secondary: #ffffff;
+  --color-tertiary: #020203;
+  --color-on-tertiary: #ffffff;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-background: #f8fafb;
+  --color-on-background: #191c1d;
+  --color-surface: #f8fafb;
+  --color-on-surface: #191c1d;
+  --color-surface-variant: #e1e3e4;
+  --color-on-surface-variant: #45474a;
+  --color-outline: #76777b;
+  --color-outline-variant: #c6c6ca;
+  --color-secondary-container: #a739f3;
+  --color-on-secondary-container: #fffbff;
+  --color-primary-container: #1c1d1f;
+  --color-on-primary-container: #858587;
+  --color-secondary-fixed: #f3daff;
+  --color-on-secondary-fixed: #2f004d;
+  --color-on-secondary-fixed-variant: #6d00ab;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f5;
+  --color-surface-container: #eceeef;
+  --color-surface-container-high: #e6e8e9;
+  --color-surface-container-highest: #e1e3e4;
+
+  --font-headline-md: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-display-lg: "Inter", sans-serif;
+  --font-headline-lg: "Inter", sans-serif;
+  --font-label-md: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-title-lg: "Inter", sans-serif;
+  --font-label-lg: "Inter", sans-serif;
+  --font-caption: "Inter", sans-serif;
+
+  --radius-sm: 0.125rem;
+  --radius-default: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 48px;
+  --spacing-gutter: 16px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-base: 4px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  min-height: max(884px, 100dvh);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.app-header {
+  @apply bg-surface sticky top-0 z-40 w-full shadow-sm flex items-center justify-between px-margin-mobile h-14 border-b border-outline-variant/30;
+}
+
+.header-brand {
+  @apply font-headline-md text-[20px] font-bold text-secondary tracking-tight;
+}
+
+.app-container {
+  @apply flex min-h-screen flex-col md:flex-row;
+}
+
+.app-main {
+  @apply flex-grow max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop w-full pb-24 md:pb-12 md:pl-28;
+}
+
+.app-sidebar {
+  @apply bg-surface border-r border-outline-variant flex flex-col items-center py-8 gap-8 shadow-sm z-30 w-20 fixed left-0 top-14 bottom-0;
+}
+
+.sidebar-icon {
+  @apply text-on-surface-variant hover:text-secondary active:scale-90 cursor-pointer transition-colors p-2 rounded-lg;
+}
+
+.sidebar-icon-active {
+  @apply text-secondary active:scale-90 cursor-pointer p-2 rounded-lg bg-secondary-fixed;
+}
+
+.app-bottom-nav {
+  @apply fixed bottom-0 left-0 w-full flex justify-around items-center h-16 px-2 bg-surface-container-highest shadow-[0px_-2px_8px_rgba(0,0,0,0.04)] z-50 border-t border-outline-variant/30;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav-link {
+  @apply flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform duration-150 py-1 px-3 rounded-full;
+}
+
+.bottom-nav-link-active {
+  @apply flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-full px-4 py-1 active:scale-90 transition-transform duration-150;
+}
+
+.btn-primary {
+  @apply bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg px-6 py-2.5 rounded-lg shadow-md active:scale-95 transition-all flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply border border-outline-variant hover:border-secondary text-primary font-label-lg px-6 py-2.5 rounded-lg active:scale-95 transition-all flex items-center justify-center gap-2 bg-surface-container-lowest;
+}
+
+.category-chip {
+  @apply px-5 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-lg text-[14px] whitespace-nowrap active:scale-95 transition-transform;
+}
+
+.category-chip-active {
+  @apply px-5 py-2 bg-secondary text-on-secondary rounded-full font-label-lg text-[14px] whitespace-nowrap active:scale-95 transition-transform;
+}
+
+.badge-tag {
+  @apply bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-sm w-max;
+}
+
+.badge-tag-bestseller {
+  @apply bg-white/95 px-2 py-1 rounded text-[10px] font-bold text-secondary shadow-sm;
+}
+
+.text-display-lg {
+  @apply font-bold text-[32px] leading-[40px] tracking-tight;
+}
+
+.text-headline-lg {
+  @apply font-bold text-[24px] leading-[32px] tracking-tight;
+}
+
+.text-headline-md {
+  @apply font-bold text-[20px] leading-[28px];
+}
+
+.text-title-lg {
+  @apply font-semibold text-[18px] leading-[24px];
+}
+
+.text-body-lg {
+  @apply font-normal text-[16px] leading-[24px];
+}
+
+.text-body-md {
+  @apply font-normal text-[14px] leading-[20px];
+}
+
+.text-label-lg {
+  @apply font-semibold text-[14px] leading-[20px];
+}
+
+.text-label-md {
+  @apply font-semibold text-[12px] leading-[16px] tracking-wide;
+}
+
+.text-caption {
+  @apply font-normal text-[12px] leading-[16px];
+}
+
+.search-bar-wrapper {
+  @apply relative flex items-center w-full;
+}
+
+.search-bar-input {
+  @apply w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all font-body-md text-[14px];
+}
+
+.search-bar-icon {
+  @apply absolute left-4 text-outline pointer-events-none;
+}
+
+.hero-card {
+  @apply relative rounded-xl overflow-hidden shadow-md h-48 md:h-64 cursor-pointer w-full;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-gradient-to-r from-secondary/90 to-transparent z-10;
+}
+
+.hero-bg-img {
+  @apply absolute inset-0 bg-cover bg-center transition-transform duration-700;
+}
+
+.hero-card:hover .hero-bg-img {
+  @apply scale-105;
+}
+
+.hero-text-container {
+  @apply absolute inset-0 z-20 flex flex-col justify-center px-6 md:px-12 text-on-secondary;
+}
+
+.course-card {
+  @apply min-w-[280px] md:min-w-0 bg-white rounded-lg shadow-[0px_2px_8px_rgba(0,0,0,0.04)] overflow-hidden border border-outline-variant hover:shadow-md transition-shadow flex flex-col;
+}
+
+.course-card-img-wrapper {
+  @apply h-36 relative w-full overflow-hidden;
+}
+
+.course-card-img {
+  @apply w-full h-full object-cover;
+}
+
+.course-card-info {
+  @apply p-md flex flex-col flex-grow;
+}
+
+.course-card-title {
+  @apply font-semibold text-[18px] leading-[24px] text-on-surface line-clamp-1 hover:text-secondary transition-colors;
+}
+
+.course-card-author {
+  @apply font-normal text-[12px] leading-[16px] text-on-surface-variant mt-1;
+}
+
+.course-card-rating-row {
+  @apply flex items-center gap-1 mt-2;
+}
+
+.course-card-rating-stars {
+  @apply flex text-secondary scale-75 -ml-2.5;
+}
+
+.course-card-footer {
+  @apply mt-3 flex items-center justify-between border-t border-outline-variant/30 pt-2;
+}
+
+.course-card-fav-btn {
+  @apply text-on-surface-variant hover:text-secondary cursor-pointer transition-colors;
+}
+
+.course-card-horizontal {
+  @apply bg-white rounded-lg overflow-hidden shadow-[0px_2px_8px_rgba(0,0,0,0.04)] border border-outline-variant flex h-32 hover:border-secondary hover:shadow-md transition-all cursor-pointer w-full;
+}
+
+.course-card-horizontal-title {
+  @apply font-semibold text-[16px] md:text-[18px] leading-tight text-primary line-clamp-2 transition-colors;
+}
+
+.course-card-horizontal:hover .course-card-horizontal-title {
+  @apply text-secondary;
+}
+
+.course-card-horizontal-author {
+  @apply text-[12px] font-normal text-on-surface-variant truncate mt-0.5;
+}
+
+.category-grid-item {
+  @apply bg-white p-4 rounded-xl shadow-sm border border-outline-variant flex flex-col items-center justify-center text-center hover:bg-secondary-fixed transition-colors cursor-pointer;
+}
+
+.category-grid-icon-circle {
+  @apply w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-3 transition-colors;
+}
+
+.category-grid-item:hover .category-grid-icon-circle {
+  @apply bg-white;
+}
+
+.ongoing-card {
+  @apply bg-primary-container text-white p-lg rounded-xl flex items-center justify-between shadow-lg w-full;
+}
+
+.ongoing-progress-track {
+  @apply mt-3 w-full bg-outline/30 h-1.5 rounded-full overflow-hidden;
+}
+
+.ongoing-play-circle {
+  @apply w-12 h-12 rounded-full bg-secondary flex items-center justify-center shadow-md hover:bg-secondary-container active:scale-90 transition-transform text-white;
+}
+
+.detail-main-layout {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-lg mt-lg items-start;
+}
+
+.detail-left-col {
+  @apply lg:col-span-2 space-y-lg;
+}
+
+.detail-right-col {
+  @apply lg:col-span-1 bg-white p-md rounded-lg shadow-sm border border-outline-variant sticky top-20;
+}
+
+.detail-hero-box {
+  @apply w-full aspect-video rounded-lg overflow-hidden border border-outline-variant relative bg-surface-container;
+}
+
+.curriculum-accordion {
+  @apply border border-outline-variant rounded-lg overflow-hidden bg-white;
+}
+
+.curriculum-section-header {
+  @apply flex items-center justify-between p-md bg-surface-container-low border-b border-outline-variant/50 cursor-pointer hover:bg-surface-container transition-colors;
+}
+
+.curriculum-section-content {
+  @apply divide-y divide-outline-variant/30;
+}
+
+.curriculum-lesson-row {
+  @apply flex items-center justify-between p-md hover:bg-surface-container-lowest transition-colors text-[14px];
+}
+
+.watch-main-layout {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-0 min-h-[calc(100vh-3.5rem)];
+}
+
+.watch-player-col {
+  @apply lg:col-span-3 flex flex-col bg-black;
+}
+
+.watch-playlist-col {
+  @apply lg:col-span-1 bg-white border-l border-outline-variant flex flex-col h-[50vh] lg:h-auto overflow-y-auto;
+}
+
+.playlist-lesson-item {
+  @apply flex items-center gap-3 p-md border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors cursor-pointer text-left;
+}
+
+.playlist-lesson-item-active {
+  @apply flex items-center gap-3 p-md border-b border-outline-variant/30 bg-secondary-fixed text-on-secondary-fixed font-medium text-left;
+}
+
+.payment-summary-box {
+  @apply bg-surface-container-lowest p-md rounded-lg shadow-sm border border-outline-variant flex gap-md items-start;
+}
+
+.payment-method-btn {
+  @apply flex flex-col items-center justify-center p-md rounded-lg border border-outline-variant bg-surface-container-lowest transition-all hover:bg-surface-container-low flex-1;
+}
+
+.payment-method-btn-active {
+  @apply flex flex-col items-center justify-center p-md rounded-lg border-2 border-secondary bg-secondary-fixed/30 transition-all flex-1;
+}
+
+.text-input-field {
+  @apply w-full h-12 px-md rounded border border-outline-variant focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all font-body-md text-[14px];
+}
+
+.secure-badge-box {
+  @apply mt-xl flex flex-col items-center gap-md text-center;
+}
+
+.status-content-wrapper {
+  @apply max-w-md mx-auto text-center py-lg px-margin-mobile flex flex-col items-center justify-center;
+}
+
+.status-icon-circle-success {
+  @apply w-20 h-20 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center mb-lg shadow-sm;
+}
+
+.status-icon-circle-error {
+  @apply w-20 h-20 rounded-full bg-error-container text-error flex items-center justify-center mb-lg shadow-sm;
+}
+
+.profile-card {
+  @apply bg-white p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col md:flex-row items-center gap-lg;
+}
+
+.profile-avatar-circle {
+  @apply w-24 h-24 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center text-[40px] font-bold shadow-inner;
+}
+
+.profile-info-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-md w-full;
+}
+
+.profile-info-item {
+  @apply bg-surface-container-low p-md rounded-lg border border-outline-variant/30;
+}
+
+.flex-col-center {
+  @apply flex flex-col items-center justify-center;
+}
+.flex-row-center {
+  @apply flex items-center justify-center;
+}
+.flex-between {
+  @apply flex items-center justify-between;
+}
+.flex-gap-sm {
+  @apply flex items-center gap-sm;
+}
+.flex-gap-md {
+  @apply flex items-center gap-md;
+}
+.flex-wrap-gap {
+  @apply flex flex-wrap items-center gap-2;
+}
+.grid-cols-2-4 {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-4;
+}
+.grid-cols-1-2-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter;
+}
+.flex-center-center {
+  @apply flex items-center justify-center;
+}
+.flex-col-stretch {
+  @apply flex flex-col gap-3 w-full;
+}
+.category-chips-scroll {
+  @apply flex items-center gap-3 overflow-x-auto;
+}
+.courses-scroll-container {
+  @apply flex gap-4 overflow-x-auto pb-4;
+}
+.badge-bestseller-absolute {
+  @apply bg-white/95 px-2 py-1 rounded text-[10px] font-bold text-secondary shadow-sm absolute top-2 right-2;
+}
+.ongoing-subtitle {
+  @apply text-[10px] font-bold text-on-primary-container tracking-wider uppercase;
+}
+.ongoing-progress-fill {
+  @apply bg-secondary-container h-full;
+}
+.ongoing-progress-text {
+  @apply text-[12px] font-normal mt-2 text-on-primary-container;
+}
+.ongoing-play-btn {
+  @apply w-12 h-12 rounded-full bg-secondary flex items-center justify-center shadow-md hover:bg-secondary-container active:scale-90 transition-transform text-white ml-6 flex-shrink-0;
+}
+.filter-bar {
+  @apply flex gap-2 overflow-x-auto py-4;
+}
+.course-card-horizontal-img-wrapper {
+  @apply w-32 h-full flex-shrink-0 relative;
+}
+.course-card-horizontal-img {
+  @apply w-full h-full object-cover;
+}
+.course-card-horizontal-content {
+  @apply flex-grow p-3 flex flex-col justify-between overflow-hidden;
+}
+.card-info-bottom-stack {
+  @apply flex flex-col gap-1;
+}
+.rating-wrapper-row {
+  @apply flex items-center gap-1;
+}
+.stars-wrapper {
+  @apply flex text-amber-500 scale-75 -ml-1;
+}
+.card-price-row {
+  @apply flex items-center justify-between;
+}
+.section-header {
+  @apply flex items-center justify-between mb-md;
+}
+.section-link {
+  @apply text-secondary font-semibold text-[14px] leading-[20px] hover:underline;
+}
+.hero-description {
+  @apply font-normal text-[14px] leading-[20px] mt-2 opacity-90;
+}
+
+.watch-tabs {
+  @apply flex mt-lg border-b border-outline-variant overflow-x-auto;
+}
+.watch-footer {
+  @apply w-full bg-surface-container-highest border border-outline-variant/30 rounded-xl h-16 flex items-center justify-around px-4 z-10 mt-md shadow-sm;
+}
+.player-play-btn {
+  @apply w-16 h-16 bg-secondary/95 text-white rounded-full flex items-center justify-center shadow-lg;
+}
+.player-controls {
+  @apply absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/80 to-transparent flex items-center px-4 justify-between text-white;
+}
+
+.mycourses-card-img-wrapper {
+  @apply h-48 relative w-full overflow-hidden;
+}
+.mycourses-card-img-wrapper-completed {
+  @apply h-48 relative w-full overflow-hidden opacity-80;
+}
+.mycourses-card-badge {
+  @apply absolute bottom-3 left-3 bg-secondary-container px-2 py-1 rounded-sm;
+}
+.mycourses-card-badge-text {
+  @apply text-on-secondary-container font-semibold text-[12px] leading-[16px] tracking-wide uppercase tracking-wider;
+}
+.mycourses-card-body {
+  @apply p-md flex flex-col gap-2 flex-grow;
+}
+.mycourses-progress-header {
+  @apply flex items-center justify-between mb-2;
+}
+.mycourses-progress-track {
+  @apply w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden;
+}
+.mycourses-completed-overlay {
+  @apply absolute inset-0 bg-black/20 flex items-center justify-center;
+}
+.mycourses-completed-icon-circle {
+  @apply bg-white/90 rounded-full p-2;
+}
+.mycourses-completed-icon {
+  @apply text-secondary font-bold;
+}
+.mycourses-progress-track-completed {
+  @apply w-full h-1.5 bg-secondary-fixed rounded-full overflow-hidden;
+}
+.mycourses-btn-certificate {
+  @apply mt-4 w-full py-2 border border-secondary text-secondary font-semibold text-[14px] leading-[20px] rounded hover:bg-secondary-fixed transition-colors;
+}
+.watch-video-section {
+  @apply bg-black w-full aspect-video relative overflow-hidden;
+}
+.watch-video-bg {
+  @apply absolute inset-0 bg-cover bg-center opacity-85;
+}
+.watch-video-play-overlay {
+  @apply absolute inset-0 flex items-center justify-center;
+}
+.watch-info-header {
+  @apply flex flex-col gap-1;
+}
+.watch-module-title {
+  @apply font-semibold text-[12px] leading-[16px] tracking-wide text-secondary uppercase tracking-wider;
+}
+.watch-star-icon {
+  @apply text-yellow-500 text-sm;
+}
+.watch-tab-btn-active {
+  @apply px-4 py-3 font-semibold text-[14px] leading-[20px] whitespace-nowrap border-b-2 border-secondary text-secondary font-semibold;
+}
+.watch-tab-btn {
+  @apply px-4 py-3 font-semibold text-[14px] leading-[20px] whitespace-nowrap text-on-surface-variant;
+}
+.watch-lesson-icon-completed {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-green-100 text-green-600;
+}
+.watch-lesson-icon-watching {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-secondary text-white;
+}
+.watch-lesson-icon-locked {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-surface-container-highest text-on-surface-variant;
+}
+.watch-footer-btn-nav {
+  @apply flex flex-col items-center justify-center text-on-surface-variant;
+}
+.watch-footer-play-btn {
+  @apply flex items-center justify-center bg-secondary text-white rounded-full w-12 h-12 shadow-lg;
+}
+.contact-main-wrapper {
+  @apply max-w-[1200px] mx-auto py-xl;
+}
+.contact-hero-section {
+  @apply mb-xl text-center md:text-left;
+}
+.contact-hero-desc {
+  @apply font-normal text-[16px] leading-[24px] text-on-surface-variant max-w-2xl;
+}
+.contact-grid-layout {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-xl;
+}
+.contact-faq-box {
+  @apply bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant;
+}
+.contact-faq-item {
+  @apply border-b border-outline-variant last:border-0 pb-md;
+}
+.contact-faq-question-row {
+  @apply py-md flex items-center justify-between text-left;
+}
+.contact-faq-question-text {
+  @apply font-semibold text-[18px] leading-[24px] text-on-surface font-semibold;
+}
+.contact-info-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-md;
+}
+.contact-info-card {
+  @apply bg-surface-container-low rounded-xl p-md flex items-start gap-4;
+}
+.contact-info-icon-circle {
+  @apply bg-secondary-fixed w-12 h-12 rounded-full flex items-center justify-center text-secondary shrink-0;
+}
+.contact-form-box {
+  @apply bg-surface-container-lowest rounded-xl p-xl shadow-md border border-outline-variant;
+}
+.contact-textarea-field {
+  @apply w-full h-12 px-md rounded border border-outline-variant focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all font-normal text-[14px] leading-[20px] h-32 resize-none py-3;
+}
+.contact-submit-btn {
+  @apply bg-secondary hover:bg-secondary-container text-on-secondary font-semibold text-[14px] leading-[20px] w-full py-4 flex items-center justify-center gap-2 rounded-lg shadow-md active:scale-95 transition-all;
+}
+.payment-main-wrapper {
+  @apply max-w-[1200px] mx-auto py-lg pb-32 w-full;
+}
+.payment-summary-img-wrapper {
+  @apply w-20 h-20 rounded-lg flex-shrink-0 bg-surface-container overflow-hidden;
+}
+.payment-summary-img {
+  @apply w-full h-full object-cover;
+}
+.payment-input-icon-wrapper {
+  @apply absolute right-3 top-1/2 -translate-y-1/2;
+}
+.payment-grid-cols-2 {
+  @apply grid grid-cols-2 gap-md;
+}
+.payment-security-badges {
+  @apply flex items-center gap-xl opacity-60;
+}
+.payment-security-badge-item {
+  @apply flex items-center gap-1;
+}
+.payment-security-brands {
+  @apply flex items-center gap-2;
+}
+.payment-footer {
+  @apply w-full bg-white p-md border border-outline-variant/30 rounded-xl shadow-sm mt-lg;
+}
+.payment-footer-container {
+  @apply max-w-xl mx-auto flex flex-col gap-sm;
+}
+.payment-footer-row {
+  @apply flex justify-between items-center mb-1;
+}
+.payment-footer-buttons {
+  @apply flex gap-2 w-full;
+}
+.status-card-box {
+  @apply  w-full flex flex-col items-center text-center mx-auto py-md;
+}
+.status-headline {
+  @apply font-bold text-[32px] leading-[40px] tracking-tight text-primary mb-sm;
+}
+.status-subtitle {
+  @apply font-normal text-[16px] leading-[24px] text-on-surface-variant mb-xl;
+}
+.status-summary-box {
+  @apply w-full bg-surface-container-low rounded-lg p-md text-left border border-outline-variant mb-xl;
+}
+.status-summary-row-header {
+  @apply flex justify-between items-center mb-md border-b border-outline-variant pb-sm;
+}
+.status-summary-item {
+  @apply flex gap-md mb-md;
+}
+.status-summary-item-img {
+  @apply w-16 h-16 rounded bg-cover bg-center shrink-0;
+}
+.flex-col-center-y {
+  @apply flex flex-col justify-center;
+}
+.status-summary-item-title {
+  @apply font-semibold text-[18px] leading-[24px] leading-tight text-primary;
+}
+.status-summary-row-footer {
+  @apply flex justify-between items-center pt-sm border-t border-outline-variant;
+}
+.status-actions {
+  @apply w-full flex flex-col gap-md;
+}
+.status-btn-primary {
+  @apply bg-secondary hover:bg-secondary-container text-on-secondary font-semibold text-[14px] leading-[20px] w-full py-4 text-center rounded-lg shadow-md active:scale-95 transition-all flex items-center justify-center gap-2;
+}
+.status-btn-secondary {
+  @apply border border-outline-variant hover:border-secondary text-primary font-semibold text-[14px] leading-[20px] w-full py-3 text-center rounded-lg active:scale-95 transition-all flex items-center justify-center gap-2 bg-surface-container-lowest;
+}
+.status-footer {
+  @apply mt-xl text-center flex flex-col items-center gap-base;
+}
+.status-footer-badge {
+  @apply flex items-center gap-1 text-on-surface-variant;
+}
+.status-failed-card-box {
+  @apply w-full  text-center py-md flex flex-col items-center mx-auto border-t-4 border-error pt-lg;
+}
+.status-failed-top-bar {
+  display: none;
+}
+.status-failed-icon-wrapper {
+  @apply relative mb-lg inline-block;
+}
+.status-failed-icon-circle {
+  @apply relative flex items-center justify-center w-24 h-24 bg-error-container rounded-full text-error;
+}
+.status-failed-subtitle {
+  @apply font-normal text-[14px] leading-[20px] text-on-surface-variant mb-lg max-w-[280px] mx-auto;
+}
+.status-failed-details-box {
+  @apply bg-surface-container-low border border-outline-variant/50 rounded-lg p-md mb-xl text-left;
+}
+.status-failed-details-header {
+  @apply flex items-center gap-2 mb-xs;
+}
+.status-failed-code {
+  @apply font-mono text-[13px] text-error break-all;
+}
+.status-failed-btn-retry {
+  @apply bg-secondary hover:bg-secondary-container text-on-secondary font-semibold text-[14px] leading-[20px] w-full py-3 text-center flex items-center justify-center gap-2 rounded-lg shadow-md active:scale-95 transition-all;
+}
+.status-failed-btn-support {
+  @apply border border-outline-variant hover:border-secondary text-primary font-semibold text-[14px] leading-[20px] w-full py-3 text-center flex items-center justify-center gap-2 rounded-lg active:scale-95 transition-all bg-surface-container-lowest;
+}
+.status-failed-solutions-box {
+  @apply mt-lg text-center  px-md;
+}
+.flex-start-gap {
+  @apply flex items-start gap-3;
+}
+.profile-main-wrapper {
+  @apply max-w-[1000px] mx-auto pt-lg space-y-lg w-full;
+}
+.profile-header-section {
+  @apply flex flex-col items-center text-center space-y-md;
+}
+.profile-avatar-wrapper {
+  @apply w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-sm;
+}
+.profile-avatar-img {
+  @apply w-full h-full object-cover;
+}
+.profile-avatar-edit-badge {
+  @apply absolute bottom-0 right-0 bg-secondary rounded-full p-1 border-2 border-white flex items-center justify-center cursor-pointer;
+}
+.profile-edit-icon {
+  @apply text-white text-[16px];
+}
+.profile-stats-grid {
+  @apply grid grid-cols-2 gap-gutter;
+}
+.profile-stats-card {
+  @apply bg-white p-md rounded-xl shadow-sm flex flex-col items-center border border-outline-variant/30;
+}
+.profile-stats-label {
+  @apply font-semibold text-[12px] leading-[16px] tracking-wide text-on-surface-variant text-center mt-1;
+}
+.profile-menu-container {
+  @apply bg-white rounded-xl shadow-sm overflow-hidden border border-outline-variant/30;
+}
+.profile-menu-item {
+  @apply flex items-center justify-between p-md hover:bg-surface-container-low transition-colors;
+}
+.profile-menu-item-logout {
+  @apply flex items-center justify-between p-md hover:bg-error/10 transition-colors;
+}
+.profile-menu-icon-wrapper {
+  @apply w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant transition-colors;
+}
+.profile-menu-icon-wrapper-logout {
+  @apply w-10 h-10 rounded-full bg-error/10 flex items-center justify-center text-error;
+}
+.profile-footer-box {
+  @apply text-center pt-md pb-md;
+}
+.profile-menu-item:hover .profile-menu-icon-wrapper {
+  @apply text-secondary;
+}
+.active-tab {
+  @apply border-b-2 border-secondary text-secondary font-semibold;
+}
+.detail-buy-btn {
+  @apply bg-secondary hover:bg-secondary-container text-on-secondary font-semibold text-[14px] leading-[20px] h-12 flex items-center justify-center rounded-lg shadow-md active:scale-95 transition-all gap-2 px-6;
+}
+.detail-footer {
+  @apply w-full bg-white border border-outline-variant/30 rounded-xl flex items-center justify-between px-md py-4 shadow-sm mt-lg;
+}
+.preview-card {
+  @apply bg-white p-lg rounded-2xl border border-outline-variant/50 shadow-[0px_2px_8px_rgba(0,0,0,0.02)] w-full mb-xl overflow-hidden;
+}
+.preview-header {
+  @apply font-bold text-[20px] leading-[28px] text-secondary border-b border-outline-variant/30 pb-sm mb-lg tracking-tight uppercase text-[14px];
+}
+
+.payment-grid-layout {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-xl py-lg;
+}
+.payment-left-col {
+  @apply lg:col-span-5 space-y-lg;
+}
+.payment-right-col {
+  @apply lg:col-span-7 space-y-lg;
+}
+.profile-grid-layout {
+  @apply grid grid-cols-1 lg:grid-cols-12 gap-xl py-lg;
+}
+.profile-left-col {
+  @apply lg:col-span-4 space-y-lg;
+}
+.profile-right-col {
+  @apply lg:col-span-8 space-y-lg;
+}
+
+@media (min-width: 768px) {
+  .app-bottom-nav {
+    display: none !important;
+  }
+  .app-sidebar {
+    display: flex !important;
+  }
+}
+@media (max-width: 767px) {
+  .app-bottom-nav {
+    display: flex !important;
+  }
+  .app-sidebar {
+    display: none !important;
+  }
+}
+
+.detail-price-old {
+  @apply font-normal text-[12px] leading-[16px] text-on-surface-variant line-through;
+}
+
+.detail-cart-btn {
+  @apply h-12 w-12 border border-secondary text-secondary rounded-lg flex items-center justify-center active:scale-95 transition-transform bg-white;
+}
+
+.input-label {
+  @apply block font-semibold text-[14px] leading-[20px] mb-xs text-on-surface-variant;
+}
+
+.status-badge-text {
+  @apply font-semibold text-[12px] leading-[16px] tracking-wide uppercase tracking-wider;
+}
+
+.status-failed-title {
+  @apply font-bold text-[32px] leading-[40px] tracking-tight text-on-surface mb-sm;
+}
+
+.status-failed-info-icon {
+  @apply text-[16px] text-outline;
+}
+
+.status-failed-info-title {
+  @apply font-semibold text-[12px] leading-[16px] tracking-wide text-outline uppercase tracking-wider;
+}
+
+.status-failed-solutions-title {
+  @apply font-semibold text-[18px] leading-[24px] text-on-surface mb-sm;
+}
+
+.status-failed-check-icon {
+  @apply text-secondary text-[20px];
+}
+
+.video-player-tag {
+  @apply w-full h-full object-cover;
+}
+
+.header-left {
+  @apply flex items-center gap-3;
+}
+.header-right {
+  @apply flex items-center gap-4;
+}
+.header-icon {
+  @apply text-on-surface-variant cursor-pointer;
+}
+.flex-center {
+  @apply flex items-center;
+}
+.course-detail-video-wrapper {
+  @apply relative w-full aspect-video overflow-hidden;
+}
+.course-detail-video-bg {
+  @apply absolute inset-0 bg-cover bg-center;
+}
+.course-detail-video-overlay {
+  @apply absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer;
+}
+.course-detail-play-btn {
+  @apply w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg;
+}
+.play-icon-large {
+  @apply text-secondary text-[36px];
+}
+.badge-row {
+  @apply flex flex-wrap gap-2 mb-sm;
+}
+.badge-tag-secondary {
+  @apply bg-surface-container-high text-on-surface-variant text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-sm w-max;
+}
+.detail-title {
+  @apply text-primary mb-xs;
+}
+.detail-description {
+  @apply text-on-surface-variant mb-md;
+}
+.detail-meta-row {
+  @apply flex flex-wrap items-center gap-2 mb-md;
+}
+.detail-stars-wrapper {
+  @apply flex text-[#FFC107] scale-75 -ml-1;
+}
+.detail-instructor-card {
+  @apply flex items-center gap-md p-md bg-white border border-outline-variant rounded-xl shadow-sm;
+}
+.detail-instructor-avatar-wrapper {
+  @apply w-12 h-12 rounded-full overflow-hidden flex-shrink-0;
+}
+.full-image-cover {
+  @apply w-full h-full object-cover;
+}
+.instructor-label {
+  @apply block text-on-surface-variant;
+}
+.instructor-name {
+  @apply block text-primary;
+}
+.instructor-role {
+  @apply block text-secondary;
+}
+.detail-outcomes-box {
+  @apply py-lg px-4 bg-surface-container-low rounded-xl mb-lg;
+}
+.detail-outcomes-title {
+  @apply text-primary mb-md;
+}
+.grid-gap-md {
+  @apply grid grid-cols-1 gap-md;
+}
+.outcome-icon {
+  @apply text-secondary flex-shrink-0;
+}
+.detail-curriculum-header {
+  @apply flex justify-between items-end mb-md;
+}
+.curriculum-lessons-wrapper {
+  @apply px-md pb-md space-y-md border-t border-outline-variant pt-md;
+}
+.flex-between-center {
+  @apply flex items-center justify-between;
+}
+.flex-center-gap-sm {
+  @apply flex items-center gap-sm;
+}
+.watch-tab-content-empty {
+  @apply mt-md p-md bg-white border border-outline-variant rounded-xl text-on-surface-variant;
+}
+.mycourses-empty-text {
+  @apply text-on-surface-variant mb-md;
+}
+.payment-section-title {
+  @apply mb-md text-on-surface;
+}
+.payment-summary-title {
+  @apply text-primary mb-1;
+}
+.payment-summary-instructor {
+  @apply text-on-surface-variant mb-2;
+}
+.payment-method-icon-active {
+  @apply text-secondary mb-2;
+}
+.payment-method-icon {
+  @apply text-on-surface-variant mb-2;
+}
+.payment-wallet-box {
+  @apply p-md bg-surface-container-low rounded-lg text-center;
+}
+.payment-wallet-text {
+  @apply text-on-surface-variant mb-4;
+}
+
